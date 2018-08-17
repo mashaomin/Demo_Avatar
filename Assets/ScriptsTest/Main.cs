@@ -40,7 +40,7 @@ public class Main : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        _base_avater = new MaterialAvatar();
+        _base_avater = new CombineMeshAvatar();
         _base_avater.Init(pfb_skeleton);
     }
 
