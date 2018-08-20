@@ -69,7 +69,7 @@ namespace Summer
 
         #region protected
 
-        protected Transform FindBones(string bone_name)
+        public Transform FindBones(string bone_name)
         {
             if (_skeleton_map.ContainsKey(bone_name))
             {

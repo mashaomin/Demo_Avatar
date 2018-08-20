@@ -33,6 +33,9 @@ public class Main : MonoBehaviour
     public List<AvatarPartInfo> avatar_parts;
     public BaseAvatar _base_avater;
     public bool flag = false;
+
+    public CombineType _type;
+
     #endregion
 
     #region MONO Override
@@ -40,7 +43,15 @@ public class Main : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        _base_avater = new CombineMeshAvatar();
+        if (_type == CombineType.combine_mesh)
+            _base_avater = new CombineMeshAvatar();
+        else if (_type == CombineType.share_skeleton)
+            _base_avater = new SkeletonAvatar();
+        else if (_type == CombineType.combine_mesh_material_1)
+            _base_avater = new CombineMeshAvatar();
+        else if (_type == CombineType.combine_mesh_material_2)
+            _base_avater = new Material2Avatar();
+
         _base_avater.Init(pfb_skeleton);
     }
 
@@ -87,4 +98,13 @@ public class AvatarPartInfo
 {
     public E_AvatarPart part;
     public GameObject pfb_go;
+}
+
+
+public enum CombineType
+{
+    share_skeleton,
+    combine_mesh,
+    combine_mesh_material_1,
+    combine_mesh_material_2,
 }
